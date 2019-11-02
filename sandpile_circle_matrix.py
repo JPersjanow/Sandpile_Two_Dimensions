@@ -2,6 +2,8 @@ from random import randint
 
 import numpy as np
 import matplotlib.pyplot as plt
+from matplotlib import colors as c
+
 from matplotlib import animation
 
 
@@ -80,13 +82,16 @@ class Sandpile:
         # A, B = np.meshgrid(self.angles_array, self.radial_array)
 
         fig, ax = plt.subplots(subplot_kw=dict(projection='polar'))
-        ax.pcolormesh(self.angles_array, self.radial_array, self.array, edgecolors='k', linewidths=1)
+        cb = ax.pcolormesh(self.angles_array, self.radial_array, self.array, edgecolors='k', linewidths=1)
         ax.set_yticks([])
         ax.set_theta_zero_location("N")
         ax.set_theta_direction(-1)
+        plt.colorbar(cb, orientation='vertical')
         plt.show()
 
 
 SANDPILE = Sandpile(5, 36, 5)
 SANDPILE.simulate(1000)
+SANDPILE.plot()
+SANDPILE.simulate(100)
 SANDPILE.plot()
