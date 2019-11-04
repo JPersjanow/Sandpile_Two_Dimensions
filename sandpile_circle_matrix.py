@@ -3,16 +3,14 @@ from random import randint
 import numpy as np
 import matplotlib.pyplot as plt
 from collections import Counter
-from tabulate import tabulate as tab
 
-from matplotlib import animation
 
 
 class Sandpile:
     """
     Class representing sandpile model for Self-Organized Criticality
 
-    :params
+    variables
     number_radial = number representing r values (must be odd number)
     number_angles = numer representing thera values
     array = array representing sandpile with r and theta
